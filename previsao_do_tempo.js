@@ -25,7 +25,34 @@ const {
 const url = `${PROTOCOL}://${URL_BASE}?q=${Q}&units=${UNITS}&appid=${APPID}&lang=${LANGUAGE}&cnt=${CNT}`
 
 //devolve uma promise
+
+//encadeamento de promises
 const minhaPromise = axios.get(url)
-minhaPromise.then((res) => {
-    console.log(res)
+minhaPromise
+.then((res) => {
+    console.log("Quem é o rest.data...")
+    console.log(res.data)
+    console.log("*******************************")
+    return res.data
+})
+.then((res) => {
+    console.log("quem é o cnt....")
+    console.log(res.cnt)
+    console.log("*******************************")
+    return res
+})
+.then((res) => {
+    console.log("Quem é o list....")
+    console.log(res.list)
+    console.log("*******************************")
+    return res.list
+})
+.then((res) => {
+    console.log("Qual é a temperatura minima da primeira previsão de tempo...")
+    console.log("A temperatura minima é " + res[0]["main"]["temp_min"])
+    return res
+})
+.then((res) => {
+    //iterar sobre a coleçao de previsoes, exibindo a temperatura minima, maxima, umidade relativa do ar, descrição de cada previsão
+    //for...
 })
