@@ -55,4 +55,10 @@ minhaPromise
 .then((res) => {
     //iterar sobre a coleçao de previsoes, exibindo a temperatura minima, maxima, umidade relativa do ar, descrição de cada previsão
     //for...
+    for (let item=0; item < res.length; item++) {
+        console.log("Temperatura minima: " + res[item]['main']['temp_min'])
+        console.log("Temperatura maxima: " + res[item]['main']['temp_max'])
+        console.log("Umidade relativa do ar: " + res[item]['main']['humidity'])
+        console.log("Descrição de cada previsão: " + res[item]['weather'][0]['description'])
+    }
 })
